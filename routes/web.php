@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', 'BroadcastController@index')->name('home');
 
 Route::group(['middleware' => ['auth'], 'controller' => 'BroadcastController'], function () {
@@ -20,8 +21,9 @@ Route::group(['middleware' => ['auth'], 'controller' => 'BroadcastController'], 
         Route::get('', 'create')->name('broadcasts.create');
         Route::post('', 'store')->name('broadcasts.store');
     });
-
-    Route::get('{broadcast}', 'show')->name('broadcasts.show');
 });
 
 require __DIR__ . '/auth.php';
+
+Route::get('{broadcast}', 'BroadcastController@show')->name('broadcasts.show');
+
