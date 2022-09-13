@@ -11,7 +11,7 @@
                     <h1>{{$broadcast->name}}</h1>
                     <div>
                         @if($broadcast->is_online)
-                            <video src="{{$broadcast->url}}" ></video>
+                            <iframe width="560" height="315" src="http://89.22.229.228:5080/Ikromov/play.html?name={{$broadcast->stream_id}}" frameborder="0" allowfullscreen></iframe>
                         @else
                             <img src="{{$broadcast->preview_url}}" alt="{{$broadcast->name}}">
                         @endif

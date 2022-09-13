@@ -69,7 +69,6 @@ class BroadcastController extends Controller
         abort_if(!$response->successful(), 404);
 
         $broadcast->setAttribute('is_online', $response->object()->status == Broadcast::BROADCASTING);
-        $broadcast->setAttribute('url', $response->object()->rtmpURL);
 
         return view('show', compact('broadcast'));
     }
